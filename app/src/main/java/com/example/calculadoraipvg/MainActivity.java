@@ -2,9 +2,11 @@ package com.example.calculadoraipvg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -12,7 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.calculadoraipvg.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         restaurarColor(et_exam);
     }
 
+    @SuppressLint("SetTextI18n")
     public void calcularNotaPresentacion(View view){
         try{
             // Validar que no haya campos vacios
@@ -97,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void calcularNotaFinal(View view) throws Exception {
+    @SuppressLint("SetTextI18n")
+    public void calcularNotaFinal(View view) {
         try {
             validarVacio("Nota examen",et_exam);
             exam = Double.parseDouble(et_exam.getText().toString());
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @SuppressLint("SetTextI18n")
     public void reset(View view){
         btn_calcularNP.setEnabled(true);
         btn_calcularNF.setEnabled(true);
@@ -151,6 +155,8 @@ public class MainActivity extends AppCompatActivity {
     private void validarVacio(String nombre, EditText et) throws Exception {
         if(et.getText().toString().isEmpty()){
             et.setBackgroundColor(Color.RED);
+            Handler handler = new Handler();
+            handler.postDelayed(() -> et.setBackgroundColor(Color.TRANSPARENT),3000);
             throw new Exception(nombre + " no puede ser estar vacio");
         }
     }
@@ -158,20 +164,20 @@ public class MainActivity extends AppCompatActivity {
     private void evaluarRangos(String nombre, double dato, int minimo, int maximo, EditText vista) throws Exception {
         if(dato < minimo) {
             vista.setBackgroundColor(Color.RED);
+            Handler handler = new Handler();
+            handler.postDelayed(() -> vista.setBackgroundColor(Color.TRANSPARENT),3000);
             throw new Exception(nombre + " no puede ser inferior a " + minimo);
         }
         if(dato > maximo) {
             vista.setBackgroundColor(Color.RED);
+            Handler handler = new Handler();
+            handler.postDelayed(() -> vista.setBackgroundColor(Color.TRANSPARENT),3000);
             throw new Exception(nombre + " no puede ser superior a " + maximo);
         }
     }
 
     public void restaurarColor(EditText et){
         et.setBackgroundColor(Color.TRANSPARENT);
-        et.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                et.setBackgroundColor(Color.TRANSPARENT);
-            }
-        });
+        et.setOnClickListener(v -> et.setBackgroundColor(Color.TRANSPARENT));
     }
 }
