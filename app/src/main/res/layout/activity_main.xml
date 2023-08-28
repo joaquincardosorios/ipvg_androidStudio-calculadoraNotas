@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#47C1C5"
+        android:gravity="center"
+        android:paddingHorizontal="10dp"
+        android:text="Calculadora de Nota IPVG" />
+
+    <TextView
+        android:id="@+id/tv_ev1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:text="Evaluación 1 (25%):" />
+
+    <EditText
+        android:id="@+id/et_ev1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="6.5"
+        android:paddingHorizontal="10dp"
+        android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/tv_ev2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:text="Evaluación 2 (30%):" />
+
+    <EditText
+        android:id="@+id/et_ev2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="6.5"
+        android:paddingHorizontal="10dp"
+        android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/tv_ev3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:text="Evaluación 3 (35%):" />
+
+    <EditText
+        android:id="@+id/et_ev3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="6.5"
+        android:paddingHorizontal="10dp"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_asist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:text="Porcentaje de asistencia (%): " />
+
+    <EditText
+        android:id="@+id/et_asis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="75"
+        android:paddingHorizontal="10dp"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/btn_calcularNP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#47C1C5"
+        android:onClick="calcularNotaPresentacion"
+        android:text="Calcular Nota Presentacion" />
+
+    <TextView
+        android:id="@+id/tv_notapresentacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:visibility="gone"
+        android:text="Nota de Presentación: "
+        />
+
+    <EditText
+        android:id="@+id/et_notapresentacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:visibility="gone"
+        android:paddingHorizontal="10dp"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_exam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:visibility="gone"
+        android:paddingHorizontal="10dp"
+        android:text="Nota Examen (40%): " />
+
+    <EditText
+        android:id="@+id/et_exam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="6.5"
+        android:visibility="gone"
+        android:paddingHorizontal="10dp"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/btn_calcularNF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#47C1C5"
+        android:visibility="gone"
+        android:onClick="calcularNotaFinal"
+        android:text="Calcular Nota Final" />
+
+    <TextView
+        android:id="@+id/tv_notafinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:visibility="gone"
+        android:paddingHorizontal="10dp"
+        android:text="Nota Final: " />
+
+    <EditText
+        android:id="@+id/et_notafinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:focusable="false"
+        android:visibility="gone"
+        android:paddingHorizontal="10dp"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_finalSituation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#107C0C"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="FELICIDADES, TE EXIMISTE!"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#47C1C5"
+        android:onClick="reset"
+        android:text="Borrar Datos" />
+
+
+</LinearLayout>
