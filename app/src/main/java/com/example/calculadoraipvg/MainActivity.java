@@ -79,16 +79,19 @@ public class MainActivity extends AppCompatActivity {
                 tv_situacionFinal.setBackgroundColor(Color.RED);
                 tv_situacionFinal.setVisibility(View.VISIBLE);
             } else if (ev1 <4 || ev2 <4 || ev3<4 || np<4 || (np<5.5 && asist<70)) {
+                tv_notapresentacion.setVisibility(View.VISIBLE);
                 et_notapresentacion.setText(np+"");
                 et_notapresentacion.setVisibility(View.VISIBLE);
                 btn_calcularNF.setVisibility(View.VISIBLE);
                 et_exam.setVisibility(View.VISIBLE);
-                tv_notapresentacion.setVisibility(View.VISIBLE);
                 tv_exam.setVisibility(View.VISIBLE);
             } else{
-                et_notafinal.setText(np+"");
-                tv_notafinal.setVisibility(View.VISIBLE);
-                et_notafinal.setVisibility(View.VISIBLE);
+                tv_notapresentacion.setVisibility(View.VISIBLE);
+                et_notapresentacion.setText(np+"");
+                et_notapresentacion.setVisibility(View.VISIBLE);
+                btn_calcularNF.setVisibility(View.VISIBLE);
+                et_exam.setVisibility(View.VISIBLE);
+                tv_exam.setVisibility(View.VISIBLE);
                 tv_situacionFinal.setVisibility(View.VISIBLE);
             }
 
